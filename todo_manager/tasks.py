@@ -20,7 +20,7 @@ class Task:
     """Represents a single task with a title and completion status.
     Purpose: Create, complete, and manage tasks.
     Inheritance: Base class for PriorityTask.
-    Methods: mark_complete, mark_incomplete, title_upper, is_high_priority.
+    Methods: __init__, mark_complete, mark_incomplete, __str__, title_upper, is_high_priority.
     Variables: title (str), completed (bool)."""
     
     # ===== Create new task =====
@@ -65,7 +65,7 @@ class PriorityTask(Task):
     """Represents a task with a priority level (High, Medium, Low).
     Purpose: Create and manage tasks with priority.
     Inheritance: Inherits from Task class.
-    Methods: is_high_priority.
+    Methods: __init__, __str__, is_high_priority.
     Variables: priority (str)."""
     
     def __init__(self, title: str, priority: str) -> None:
@@ -100,7 +100,7 @@ class TaskList:
     completing, displaying, saving, and loading tasks.
     Purpose: Manage a user's task list.
     Composition: Contains multiple Task and PriorityTask objects.
-    Methods: add_task, delete_task, mark_complete, get_tasks, display_tasks, save_tasks, load_tasks
+    Methods: __init__, add_task, delete_task, mark_complete, get_tasks, display_tasks, save_tasks, load_tasks
         is_valid_task_number, show_invalid_number_error.
     Variables: username (str), tasks (Task), index (int), filename (str)."""
 
