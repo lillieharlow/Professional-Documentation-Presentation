@@ -1,8 +1,7 @@
-""" Utility functions to avoid circular imports between main.py and tasks.py.
-Features:
-print_no_tasks(): Message when user wants to action a task but has no tasks listed
-get_task_number(): Gets and validates task number input
-retry_task(): Prompt user to 'retry' task action (mark complete/delete)
+""" utils.py handles helper functions for the todo_manager app.
+Imports:
+- styling: Custom file for styling the terminal (colours, clearing the screen).
+- emoji_library: Custom file that holds emoji icons for user actions (like login success, errors
 """
 
 from styling import print_info, clear_screen, print_error
@@ -10,12 +9,16 @@ from emoji_library import interesting, cross
 
 # ========== print_no_tasks() =========
 def print_no_tasks() -> None:
-    """Message shown to user when there are no tasks listed"""
+    """Print a message to user when there are no tasks.
+    Returns: None"""
     print_info(f"{interesting} You don't have any tasks listed, let's add some!")
     
 # ========== Task Number Input =========
 def get_task_number(task_list, action):
-    """Get task number from user for completing/deleting a task"""
+    """Get a valid task number from user for actions like delete/complete.
+    Parameters: task_list: The list of tasks to choose from.
+                action (str): The action being performed (e.g., "delete", "complete").
+    Returns: int or None: The index of the selected task, or None if invalid."""
     if not task_list.get_tasks():
         return None
     max_num = len(task_list.get_tasks())
@@ -33,7 +36,13 @@ def get_task_number(task_list, action):
     
 # ========== Retry task actions (delete/complete) ==========
 def retry_task(task_list, action, action_func, after_success_msg=None, after_success_func=None):
-    """Helper to retry a task action (mark complete/delete) with a retry prompt."""
+    """Retry a task action (like delete or complete) until successful or user opts out.
+    Parameters: task_list: The list of tasks to operate on.
+                action (str): The action being performed (e.g., "delete", "complete").
+                action_func: The function to call to perform the action.
+                after_success_msg (str, optional): Message to print after successful action.
+                after_success_func (function, optional): Function to call after successful action.
+    Returns: None."""
     while True:
         task_list.display_tasks()
         index = get_task_number(task_list, action)
