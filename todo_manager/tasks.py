@@ -1,13 +1,11 @@
-"""
-tasks.py: helps a user keep track of their tasks. 
+"""tasks.py: helps a user keep track of their tasks. 
 
 Imports:
 - json: Save and load tasks as text files (like storing tasks in a notebook).
 - os: Helps with file and folder handling (making sure files are saved in the right place).
 - emoji_library: Custom file that holds emoji icons for task completion, priority, etc.
 - styling: Custom file for styling the terminal (colours, tables, clearing the screen).
-- utils: Custom file with helper functions (like showing “no tasks” messages).
-"""
+- utils: Custom file with helper functions (like showing “no tasks” messages)."""
 
 import json
 import os
@@ -102,7 +100,7 @@ class TaskList:
     Composition: Contains multiple Task and PriorityTask objects.
     Methods: __init__, add_task, delete_task, mark_complete, get_tasks, display_tasks, save_tasks, load_tasks
         is_valid_task_number, show_invalid_number_error.
-    Variables: username (str), tasks (Task), index (int), filename (str)."""
+    Variables: username (str), tasks (Task), filename (str)."""
 
     # ===== Setup task list =====
     def __init__(self, username: str) -> None:
