@@ -1,0 +1,8 @@
+bcrypt==4.3.0
+emoji==2.14.1
+markdown-it-py==3.0.0
+mdurl==0.1.2
+pyfiglet==1.0.2
+Pygments==2.19.2
+rich==13.7.1
+six==1.17.0
