@@ -22,7 +22,12 @@ u = User()
 
 # ========== User Welcome =========
 def welcome_user(username: str, is_returning: bool = False) -> None:
-    """Welcome message for user/guest"""
+    """Prints a context aware welcome message to a new or returning user.
+    Arguments:
+        username (str): Username of logged in user, or 'Guest'
+        is_returning (bool): If user has previously logged in
+
+    Returns: None"""
     if username == "Guest":
         return  # Don't print the welcome message for guest
     if is_returning:
@@ -33,7 +38,14 @@ def welcome_user(username: str, is_returning: bool = False) -> None:
 
 # ========== Task Input =========
 def get_task_input():
-    """Get task input from user"""
+    """Get & process task input from user.
+    Validates input meets length requirements.
+    Gets task priority from user before returning Task or PriorityTask object.
+    
+    Returns: 
+        Task: If non prioritised task
+        PriorityTask: If user selects a priority
+        None: If invalid task name entered"""
     title = input("\nWhat task do you want to add? ").strip()
     if not title:
         print_error("\nCome on, you gotta tell me what the task is!")
@@ -73,7 +85,11 @@ def get_task_input():
 
 # ========== Task Menu =========
 def task_menu(task_list: TaskList, username: str) -> None:
-    """Main task menu for adding, seeing, completing, deleting tasks"""
+    """Main task menu for adding, seeing, completing, deleting tasks.
+    Parameters:
+        task_list (TaskList): The TaskList object for the logged in user
+        username (str): The username of the logged in user
+    Returns: None"""
     while True:
         print("\n" + "="*50)
         print(f"{smile} {username}'s TO DO.")
@@ -148,6 +164,11 @@ def task_menu(task_list: TaskList, username: str) -> None:
 
 # ========== User Signup =========
 def handle_signup():
+    """Helper function to process sign up of user, and display main menu
+    
+    Returns:
+        None: If user signs up, calls task_menu
+        False: If no valid username provided"""
     username = u.register_user()
     if username:
         clear_screen() # clear screen after signup
@@ -158,6 +179,11 @@ def handle_signup():
 
 # ========== User Login =========
 def handle_login():
+    """Helper function to process login of existing user, and display main menu
+    
+    Returns:
+        None: If user logs in, calls task_menu
+        False: If no valid username provided"""
     username = u.login_user()
     if username:
         clear_screen() # clear screen after login
@@ -168,6 +194,11 @@ def handle_login():
 
 # ========== Guest user / doesn't save tasks =========
 def handle_guest() -> None:
+    """Helper function to process Guest user, and display main menu
+
+    Returns:
+        None: calls task_menu
+    """
     guest = GuestUser()
     username = "Guest"
     clear_screen()
@@ -181,7 +212,9 @@ def handle_guest() -> None:
         
 # ========== Main Menu =========
 def main_menu() -> None:
-    """Main menu for user to create account, login, guest or exit"""
+    """Main menu for user to create account, login, guest or exit
+    
+    Returns: None"""
     while True:
         print("\n" + "="*50)
         print(f"\n1. {person} Create new account")
