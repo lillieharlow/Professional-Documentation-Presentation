@@ -1,15 +1,11 @@
-"""Handles user management (login, signup) securely
-Features:
-User class: Handles signup, login, tracks current user
-__init__: Sets up user file, logged-in user
-load_users(): Loads users from file
-save_users(): Saves users to file
-register_user(): Signup logic
-login_user(): Login logic
-get_current_user(): Returns current user
-GuestUser class: Inherits from User, marks as guest
-except Exception as e: handle errors gracefully
-->: type hinting for better code clarity"""
+"""user.py handles user management (signup, login) securely.
+Imports:
+- json: Save and load user data (like usernames and passwords) as text files.
+- os: Helps with file and folder handling (making sure user files are saved in the right place).
+- getpass: Securely get user passwords without showing them on screen.
+- emoji_library: Custom file that holds emoji icons for user actions (like login success, errors).
+- styling: Custom file for styling the terminal (colours, clearing the screen).
+- bcrypt: Securely hash and check passwords (so we don't store plain text passwords)."""
 
 import json
 import os
@@ -20,15 +16,24 @@ import bcrypt
 
 # ========= User class =========
 class User:
-    """User signup, logging in, and keeping track of who's logged in."""
+    """Handles user signup and login. Tracks currently logged-in user. 
+    Purpose: Manage user accounts securely.
+    Methods: __init__, load_users, save_users, register_user, login_user,
+        get_current_user, hash_password, check_password.
+    Variables: users_file (str), logged_in_user (str)."""
 
     # ========== Create user and set up file location ==========
     def __init__(self, users_file: str = "data/users.json"):
+        """Initialize user object and set up file location for user data.
+        Parameters: users_file (str): Path to the JSON file storing user data.
+        Returns: None."""
         self.users_file = users_file
         self.logged_in_user = None
 
     # ========== Load user from json file ==========
     def load_users(self) -> dict:
+        """Load users from JSON file. If file doesn't exist, return empty dict.
+        Returns: dict: Dictionary of users with usernames as keys and hashed passwords (bytes) as values."""
         if not os.path.exists(self.users_file):
             return {}
         try:
@@ -44,6 +49,9 @@ class User:
     
     # ========== Save user to json file ==========
     def save_users(self, users: dict) -> None:
+        """Save users to JSON file.
+        Parameters: users (dict): Dictionary of users with usernames as keys and hashed passwords (bytes) as values.
+        Returns: None."""
         os.makedirs(os.path.dirname(self.users_file), exist_ok=True)
         
         try:
@@ -61,6 +69,8 @@ class User:
 
     # ========== Sign up/create new user account ==========
     def register_user(self) -> str:
+        """Create a new user with username and password.
+        Returns: str: The username of the newly registered user."""
         users = self.load_users()
         print_success(f"\nYay! {smile} Let's create your TO DO. account!")
 
@@ -94,6 +104,8 @@ class User:
 
     # ========== Log in existing user - 3 attempts ==========
     def login_user(self) -> str:
+        """Log in an existing user by verifying username and password.
+        Returns: str: Username of the logged-in user, or None if login failed."""
         users = self.load_users()
         print_success(f"\n {smile} Please enter your login details:")
 
@@ -117,19 +129,31 @@ class User:
                 
     # ========== Get current user ==========
     def get_current_user(self) -> str:
+        """Return the currently logged-in user.
+        Returns: str: Username of logged-in user, or None if no user is logged in."""
         return self.logged_in_user # Who's using the app right now
 
     # ========== Secure password hashing with bcrypt ==========
     def hash_password(self, password: str) -> bytes:
+        """Hash password using bcrypt for secure storage.
+        Parameters: password (str): The plain text password to hash.
+        Returns: bytes: The hashed password."""
         salt = bcrypt.gensalt()
         return bcrypt.hashpw(password.encode('utf-8'), salt)
 
     def check_password(self, password: str, hashed: bytes) -> bool:
-        """Verify password against hash"""
+        """Check a plain text password against a hashed password.
+        Parameters: password (str): The plain text password to check.
+                    hashed (bytes): The hashed password to compare against.
+        Returns: bool: True if the password matches the hash, else False."""
         return bcrypt.checkpw(password.encode('utf-8'), hashed)
 
 # ========== Guest User - doesn't save tasks or login details ==========
 class GuestUser(User): # Inherits from User class
+    """Represents a guest user who doesn't save tasks or login details.
+    Purpose: Allow temporary access without saving data.
+    Inheritance: Inherits from User class.
+    Methods: __init__."""
     def __init__(self) -> None:
         super().__init__()
         self.is_guest = True
