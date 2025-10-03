@@ -52,7 +52,7 @@ Perfect for students, developers, and anyone who loves organising their day with
 
 TO DO. draws inspiration from these projects but focuses on fun, ease of use, and accessibility while still keeping your data safe.
 
-# References:
+## References:
 [1] Arjun K. (2024) *Why Command-Line Tools Are Still Relevant in the Age of GUIs*, https://dev.to/arjun98k/why-command-line-tools-are-still-relevant-in-the-age-of-guis-3n7m?utm_, accessed 3 October 2025.
 
 [2] Stutcliffe, A. G. (2023) *Why people choose apps: Aesthetics, usability, and engaging interaction*, https://www.sciencedirect.com/science/article/pii/S1071581922001835?utm_, accessed 3 October 2025.
