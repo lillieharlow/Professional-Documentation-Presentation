@@ -1,13 +1,11 @@
-"""Styling for the CLI app using Rich, pyfiglet, and custom print functions
-Features:
-Console setup: Rich and pyfiglet for colors and ASCII art
-print_error(): Red error messages
-print_success(): Green success messages
-print_info(): Yellow info messages
-print_rainbow_text(): Rainbow ASCII art
-show_app_title(): Displays app title
-create_task_table(): Creates styled task table
-print_table(): Prints styled table"""
+"""
+styling.py: Styling for the CLI app using Rich, pyfiglet, and custom print functions. 
+
+Imports:
+- os: Helps with file and folder handling (making sure files are saved in the right place).
+- pyfiglet: Facilitates creating & displaying stylised ASCII art text
+- rich: Enables coloured & formatted console output including tables
+"""
 
 import os
 import pyfiglet
@@ -17,24 +15,56 @@ from rich.table import Table
 console = Console(style="bold")
 
 # ========= Basic Print Functions =========
-def print_error(message):
-    """Error messages in red"""
+def print_error(message:str) -> None:
+    """Prints provided message in red (error)
+
+    Parameters:
+        message (str): The message to format
+    
+    Returns:
+        None: Prints message to console"""
     console.print(f"[bold #ff0000]{message}[bold /#ff0000]", markup=True) # force rich to style all text bold in red
 
-def print_success(message):
-    """Success messages in green"""
+def print_success(message:str) -> None:
+    """Prints provided message in green (success)
+
+    Parameters:
+        message (str): The message to format
+    
+    Returns:
+        None: Prints message to console"""
     console.print(message, style="#00ff84", markup=True)
 
-def print_info(message):
-    """Info messages in yellow"""
+def print_info(message:str) -> None:
+    """Prints provided message in yellow (info)
+
+    Parameters:
+        message (str): The message to format
+    
+    Returns:
+        None: Prints message to console"""
     console.print(message, style="#ffe600", markup=True)
 
-def red_text(message):
+def red_text(message:str) -> str:
+    """Formats provided message as bold & red colour, for use in testing
+    
+    Parameters:
+        message (str): The message to format
+    
+    Returns:
+        str: Formatted message"""
     return f"[bold #ff0000]{message}[bold /#ff0000]" # red text for TDD testing implementation
 
 # ========= ASCII Art Title =========
-def print_rainbow_text(text, font='ANSI_Shadow'):
-    """Rainbow ASCII art with pyfiglet and Rich"""
+def print_rainbow_text(text:str, font:str='ansi_shadow') -> None:
+    """Prints provided message in rainbow colours & stylised using ASCII art with pyfiglet
+
+    Parameters:
+        message (str): The message to format
+        font (str): The pyfiglet font to use (default = ansi_shadow)
+
+    Returns:
+        None: Prints message to console"""
     figlet_text = pyfiglet.figlet_format(text, font=font) # Convert input text to ASCII art with pyfiglet
 
     rich_colors = [   # List rainbow colours
@@ -69,14 +99,24 @@ def print_rainbow_text(text, font='ANSI_Shadow'):
 
 # ========= App Title =========
 def show_app_title():
-    """Display app title/goodbye with rainbow styling"""
+    """Helper function that prints the configured app title to console
+
+    Returns:
+        None: Prints title to console"""
     console.print("="*50)
-    print_rainbow_text("TO DO.", font='ANSI_Shadow')
+    print_rainbow_text("TO DO.", font='ansi_shadow')
     console.print("="*50 + "\n")
 
 # ========= Task Table =========
 def create_task_table(username):
-    """Display tasks in a table format. Each column has different colour."""
+    """Display provided users tasks in a table format. Each column has different colour.
+        
+    Parameters:
+        username (str): Username of the logged in user
+    
+    Returns:
+        Table (rich): Table object containing users tasks
+    """
     table = Table(title=f"{username}'s Tasks", style="#00fbff", show_header=True)
 
     table.add_column("TASK #", width=8, justify="center", header_style="#d382ff") # Purple
@@ -86,13 +126,20 @@ def create_task_table(username):
     return table
 
 # ========= Print Table =========
-def print_table(table):
-    """Print a table with proper spacing with Rich library"""
+def print_table(table:Table) -> None:
+    """Prints a provided table to console
+    
+    Parameters: 
+        table (Table): rich Table object
+    
+    Returns: None"""
     console.print(table)
     
 # ========= Clear screen styling =========
     
 def clear_screen():
-    """Clear screen for better visibility with os"""
+    """Clear screen for better visibility, using os
+    
+    Returns: None"""
     os.system('clear')
     show_app_title()
