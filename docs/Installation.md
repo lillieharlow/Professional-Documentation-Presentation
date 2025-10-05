@@ -4,7 +4,7 @@ For the best experience, use a dark theme in your code editor (e.g., "Visual Stu
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/lillieharlow/TO_DO._App.git
+   git clone https://github.com/lillieharlow/Professional-Documentation-Presentation.git
    cd TO_DO._App
    ```
 2. **Install Dependencies**
