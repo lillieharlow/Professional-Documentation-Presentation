@@ -65,3 +65,59 @@ Actions taken:
     
     *Australian Government Digital Service Standard (Criteria 9: Make it simple and intuitive).*
 <hr>
+
+## FEEDBACK LOG (PROVIDED) 1
+
+Date: 5th October 2025
+
+Checked by: Nick Fahey
+
+Documentation checked: [GitHub Repo: flask-lms](https://github.com/macfluffy/flask-lms/tree/master)
+
+Feedback:
+
+"Hey guys,
+Readme looks great! A couple of things I would suggest, and some general notes:
+
+1. I think it would be good to position the setup section closer to the top, e.g. above background & rationale. Easy access to the setup guide means users can find the commands required quickly and set up faster.
+
+2. Maybe consider separating some of the README information into separate docs? E.g. background / rationale, target users, and sections under security / data considerations. It's structured well currently, but the quick access section is the only one under a drop down, and it's probably the most important one for a user to read!
+
+3. Your setup script for the database:
+```psql -U postgres <<'SQL'
+CREATE DATABASE lms_db;
+CREATE USER lms_user WITH PASSWORD 'change-me';
+GRANT ALL PRIVILEGES ON DATABASE lms_db TO lms_user;
+SQL
+```
+
+grants privileges for the database but not schema 'public', so lms_user won't be able to perform operations. Consider adding privileges for the schema, or alternatively create the database after the user, and set the DB owner to lms_user.
+
+4. There may be some ethical concerns regarding distribution of this app without authentication implemented. While it is made clear in the README that this feature isn't yet available - the docs also present this app as "...inspired by these platforms but intentionally scoped as a lightweight solution for educational institutions. It ". This could be interpreted as suggesting this app as a simple to use replacement for the alternatives mentioned, and a user might implement this as is without considering the importance of keeping PII safe.
+Consider the IEEE code of ethics section I, 1. "... to protect the privacy of others ..."
+The IEEE code can be viewed here: https://www.ieee.org/content/dam/ieee-org/ieee/web/org/about/corporate/ieee-code-of-ethics.pdf
+<hr>
+
+## FEEDBACK LOG (PROVIDED) 2
+
+Date: 6th October 2025
+
+Checked by: Lillie Chapman
+
+Documentation checked: [GitHub Repo: flask-lms](https://github.com/macfluffy/flask-lms/tree/master)
+
+Feedback:
+
+"Hey Matt & Joshua! Great idea to use the project from class!
+
+Feedback:
+1. As someone who has only recently entered the tech world (I had no experience prior to this course), I actually didn’t know what LMS stood for and had to google it. I suggest typing “Learning Management System (LMS)” at the start of the README. Promoting good accessibility practices and ensures documentation is clear and inclusive. Ethical ref: WCAG 2.1 (Guidelines for making digital content understandable and perceivable for all users).
+
+2. Great dot points under background and rationale. This research really does highlight the need for this API.
+
+3. I couldn’t find the system hardware requirements or the list of dependencies? This could  lead to install issues and users not being able to run the project properly. Including a clear list in the README/help file would help ensure users can set it up safely and correctly.
+
+4. The features list is well detailed but I don’t think it fits your target market as it’s written in developer language. I assume most teachers and administer staff wouldn’t really understand it. I suggest translating it into everyday user talk to align with target market. Making it more accessible and inclusive. E.g:
+Instead of “RESTful CRUD endpoints for students, teachers, and courses with JSON responses” = Say: "Quickly add, update, and view students, teachers, and courses through a simple interface, keeping records consistent and enrolment faster."
+Instead of "CLI helpers (flask db create|drop|seed) for rapid database lifecycle management" = Say: "Easily set up and update the system’s database with minimal effort, keeping information accurate and up-to-date."
+Ethical ref: ISO/IEC 38500 (Corporate governance of IT – ensuring IT is aligned with users’ needs and ethical principles)."
