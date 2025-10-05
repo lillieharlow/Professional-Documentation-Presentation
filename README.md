@@ -18,17 +18,17 @@ TO DO. adds colour, ASCII banners, and emojis to make managing tasks in the term
 
 ## Features
 
-- 🌈 Colourful CLI - emoji and ASCII art for an engaging experience.
+- 🌈 Colourful CLI - Colour-coded output, emoji icons, and ASCII banners, TO DO. transforms simple task lists into a visually rich experience that keeps motivation high.
 
-- 🔒 Secure login system - user data stored in JSON, passwords hashed with bcrypt.
+- 🔒 Secure login system - Many CLI tools store data in plain text. TO DO. protects users with bcrypt password hashing and local JSON storage, ensuring personal data stays private and secure.
 
-- 👤 Guest mode - try before signing up (tasks aren’t saved in guest mode).
+- 👤 Guest mode - No accounts, dashboards, or installations beyond your terminal. Jump straight in with Guest Mode to test the app, then create an account when you’re ready.
 
-- 📝 Task management - add, view, mark as complete, and delete tasks.
+- 📝 Task management - You’ll be able to add, view, mark as complete, and delete tasks effortlessly, with a clean, intuitive interface that fits right into your workflow.
 
-- 🔝 Prioritisation - organise tasks with High, Medium, or Low priority levels.
+- 🔝 Prioritisation - Easily organise your tasks by High, Medium, or Low priority. You’ll stay on top of your goals with visual cues that highlight which task to tackle next.
 
-- 💾 Persistent storage - your tasks are saved and ready when you return.
+- 💾 Lightweight & Persistent — Your tasks are saved locally, ready whenever you return. TO DO. runs directly in your terminal, it's fast, efficient, and distraction-free.
 
 ## Docs & Help Files
 
@@ -59,6 +59,31 @@ Perfect for students, developers, and anyone who loves organising their day with
 - 👀 Casual users who want to “try before they commit” with guest mode. <br>
 *“As a new user, I want to try an app in guest mode before creating an account.”*
 
+## Quick Install
+
+For the best experience, use a dark theme in your code editor (e.g., "Visual Studio Dark" in VS Code).
+
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/lillieharlow/Professional-Documentation-Presentation.git
+   cd TO_DO._App
+   ```
+2. **Install Dependencies**
+   ```bash
+   pip install rich pyfiglet bcrypt emoji
+   ```
+   Or create `requirements.txt` and manually add the dependencies (recommended for consistency):
+   ```
+   bcrypt==4.3.0
+   emoji==2.14.1
+   markdown-it-py==3.0.0
+   mdurl==0.1.2
+   pyfiglet==1.0.2
+   Pygments==2.19.2
+   rich==13.7.1
+   six==1.17.0
+   ```
+
 ## Security & Data Storage
 
 TO DO. takes your privacy and data seriously. Whether you’re managing assignments, work tasks, or personal projects, you can trust that your information is safe:
@@ -79,7 +104,7 @@ TO DO. takes your privacy and data seriously. Whether you’re managing assignme
 
 - 💡 [Taskwarrior](https://taskwarrior.org/) – A powerful CLI task manager, but with a steep learning curve.
 
-TO DO. draws inspiration from these projects but focuses on fun, ease of use, and accessibility while still keeping your data safe.
+TO DO. draws inspiration from these projects but TO DO. isn’t just another CLI tool. It’s a secure, joyful, productivity companion that fits naturally into your workflow, keeps your data safe, and turns to-do lists into something you'll actually enjoy using.
 
 ## References
 [1] Arjun K. (2024) *Why Command-Line Tools Are Still Relevant in the Age of GUIs*, https://dev.to/arjun98k/why-command-line-tools-are-still-relevant-in-the-age-of-guis-3n7m?utm_, accessed 3 October 2025.
