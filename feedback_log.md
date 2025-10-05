@@ -13,10 +13,13 @@ Feedback:
 Actions taken:
 
 1. Added a direct link in ```README``` to ```docs``` folder to guide user to help files, improve usability and accessibility.
+    
     *Australian Government Digital Service Standard (Criteria 9: Make it simple and intuitive).*
 2. Added a Security and Privacy section to ```README```. Emphasise transparent, responsible handling of user data.
+    
     *Australian Privacy Act 1988 (Cth) – APP 6 (use and disclosure of personal information).*
 3. Enhanced visual appeal of ```README``` by adding emojis and ASCII banner title. Creating a more enjoyable, positive user experience through design.
+    
     *Australian Computer Science Code of Professional Conduct (Value 1.3 — Enhancement of Quality of Life)*
 <hr>
 
@@ -35,8 +38,10 @@ Feedback:
 Actions taken:
 
 1. Added a direct link in ```README``` to ```docs``` folder to guide user to help files, improve usability and accessibility.
+    
     *Australian Government Digital Service Standard (Criteria 9: Make it simple and intuitive).*
 2. ```README``` features elaborated on further to highlighting it's uniqueness for potential users.
+    
     *Australian Computer Science Code of Professional Conduct (Value 1.3 — Enhancement of Quality of Life)*
 <hr>
 
@@ -55,6 +60,8 @@ Feedback:
 Actions taken:
 
 1. Added a simplified installation section to ```README```. Users can quickly copy-paste to launch the app.
+    
     *Australian Computer Science Code of Professional Conduct (Value 1.4 — Competence).*
+    
     *Australian Government Digital Service Standard (Criteria 9: Make it simple and intuitive).*
 <hr>
