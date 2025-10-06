@@ -5,13 +5,13 @@ Imports:
 """
 
 from styling import print_info, clear_screen, print_error
-from emoji_library import interesting, cross
+from emoji_library import emoji_interesting, emoji_cross
 
 # ========== print_no_tasks() =========
 def print_no_tasks() -> None:
     """Print a message to user when there are no tasks.
     Returns: None"""
-    print_info(f"{interesting} You don't have any tasks listed, let's add some!")
+    print_info(f"{emoji_interesting} You don't have any tasks listed, let's add some!")
     
 # ========== Task Number Input =========
 def get_task_number(task_list, action):
@@ -29,9 +29,9 @@ def get_task_number(task_list, action):
         if 0 <= index < max_num:
             return index
         else:
-            print_error(f"\n{cross} Cheeky! That task number isn't there!")
+            print_error(f"\n{emoji_cross} Cheeky! That task number isn't there!")
     except ValueError:
-        print_error(f"\n{interesting} That's not a number!")
+        print_error(f"\n{emoji_interesting} That's not a number!")
     return None
     
 # ========== Retry task actions (delete/complete) ==========

@@ -91,7 +91,7 @@ Actions Taken:
 
 2. Cleaned up repeated installation instructions in `README` and `docs/Installation.md`.
 
-
+3. Renamed variables containing emojis to more descriptive names for clarity.
 
 <hr>
 

@@ -10,7 +10,7 @@ Imports:
 import json
 import os
 from getpass import getpass
-from emoji_library import person, add, cross, lock, interesting, smile
+from emoji_library import emoji_person, emoji_add, emoji_cross, emoji_lock, emoji_interesting, emoji_smile
 from styling import print_error, print_success, clear_screen
 import bcrypt
 
@@ -65,17 +65,17 @@ class User:
             clear_screen()
             print_success(f"\nNice cache! Your account has been saved.")
         except Exception as e:
-            print_error(f"\nUgh, JaSON didn't like that one {interesting}. Error: {e}\nPlease try again.")
+            print_error(f"\nUgh, JaSON didn't like that one {emoji_interesting}. Error: {e}\nPlease try again.")
 
     # ========== Sign up/create new user account ==========
     def register_user(self) -> str:
         """Create a new user with username and password.
         Returns: str: The username of the newly registered user."""
         users = self.load_users()
-        print_success(f"\nYay! {smile} Let's create your TO DO. account!")
+        print_success(f"\nYay! {emoji_smile} Let's create your TO DO. account!")
 
         while True:
-            username = input(f"\n{person} Choose your username: ").strip()
+            username = input(f"\n{emoji_person} Choose your username: ").strip()
             if not username:
                 print_error(f"\nPlease enter a valid username!")
                 continue
@@ -85,13 +85,13 @@ class User:
             break
 
         while True:
-            password = getpass(f"\n{add} Please enter your password (5+ characters): ").strip()
+            password = getpass(f"\n{emoji_add} Please enter your password (5+ characters): ").strip()
             if len(password) < 5:
                 print_error(f"\nThat password's too short. Give me a longer one!")
                 continue
-            password_confirm = getpass(f"\n{add} Second time's a charm! Please re-enter your password: ").strip()
+            password_confirm = getpass(f"\n{emoji_add} Second time's a charm! Please re-enter your password: ").strip()
             if password != password_confirm:
-                print_error(f"\nHmm {interesting} your passwords don't match. Want to try again?")
+                print_error(f"\nHmm {emoji_interesting} your passwords don't match. Want to try again?")
                 continue
             break
 
@@ -107,24 +107,24 @@ class User:
         """Log in an existing user by verifying username and password.
         Returns: str: Username of the logged-in user, or None if login failed."""
         users = self.load_users()
-        print_success(f"\n {smile} Please enter your login details:")
+        print_success(f"\n {emoji_smile} Please enter your login details:")
 
         attempts = 0
         while attempts < 3:
-            username = input(f"\n{person} Username: ").strip()
+            username = input(f"\n{emoji_person} Username: ").strip()
             if not username:
-                print_error(f"\n{cross} Please enter a valid username.")
+                print_error(f"\n{emoji_cross} Please enter a valid username.")
                 continue
-            password = getpass(f"\n{lock} Password: ").strip()
+            password = getpass(f"\n{emoji_lock} Password: ").strip()
             if username in users and self.check_password(password, users[username]["password"]): # Secure password verification
                 self.logged_in_user = username
                 return username
             else:
                 attempts += 1
                 if attempts < 3:
-                    print_error(f"\nOops! That username or password didn't match {interesting}. Please try again!")
+                    print_error(f"\nOops! That username or password didn't match {emoji_interesting}. Please try again!")
         clear_screen()
-        print_error(f"\nUmm, this is awkward {interesting} Did you forget your details?\nLet's go back to the main menu.")
+        print_error(f"\nUmm, this is awkward {emoji_interesting} Did you forget your details?\nLet's go back to the main menu.")
         return None
                 
     # ========== Get current user ==========

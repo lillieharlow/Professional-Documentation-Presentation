@@ -15,7 +15,7 @@ from user import User, GuestUser
 from tasks import Task, PriorityTask, TaskList
 from utils import print_no_tasks, retry_task
 from styling import * # Import all styling functions
-from emoji_library import person, key, door, smile, add, list, complete, delete, quit, interesting, cross, high, medium, low
+from emoji_library import emoji_person, emoji_key, emoji_door, emoji_smile, emoji_add, emoji_list, emoji_complete, emoji_delete, emoji_quit, emoji_interesting, emoji_cross, emoji_high, emoji_medium, emoji_low
 
 # ========== Global user objects =========
 u = User()
@@ -33,7 +33,7 @@ def welcome_user(username: str, is_returning: bool = False) -> None:
     if is_returning:
         message = f"Hey {username}, welcome back!"
     else:
-        message = f"Hey {username}, welcome to TO DO. {smile} Let's get started!"
+        message = f"Hey {username}, welcome to TO DO. {emoji_smile} Let's get started!"
     print_success(message)
 
 # ========== Task Input =========
@@ -59,9 +59,9 @@ def get_task_input():
         if is_priority == "y":
             while True:
                 print(f"\nHow important?")
-                print(f"\n1. {high} High")
-                print(f"2. {medium} Medium")
-                print(f"3. {low} Low")
+                print(f"\n1. {emoji_high} High")
+                print(f"2. {emoji_medium} Medium")
+                print(f"3. {emoji_low} Low")
                 priority_choice = input("\nPlease enter a number (1-3): ").strip()
                 if priority_choice == "1":
                     priority = "High"
@@ -81,7 +81,7 @@ def get_task_input():
         elif is_priority == "n":
             return Task(title)
         else:
-            print_error(f"\n {interesting} Please type 'y' or 'n'.")
+            print_error(f"\n {emoji_interesting} Please type 'y' or 'n'.")
 
 # ========== Task Menu =========
 def task_menu(task_list: TaskList, username: str) -> None:
@@ -92,20 +92,20 @@ def task_menu(task_list: TaskList, username: str) -> None:
     Returns: None"""
     while True:
         print("\n" + "="*50)
-        print(f"{smile} {username}'s TO DO.")
+        print(f"{emoji_smile} {username}'s TO DO.")
         print("="*50)
-        print(f"1. {add} Add a new task")
-        print(f"2. {list} See all my tasks")
-        print(f"3. {complete} Mark a task as done")
-        print(f"4. {delete} Delete a task")
-        print(f"5. {quit} Exit TO DO. app")
+        print(f"1. {emoji_add} Add a new task")
+        print(f"2. {emoji_list} See all my tasks")
+        print(f"3. {emoji_complete} Mark a task as done")
+        print(f"4. {emoji_delete} Delete a task")
+        print(f"5. {emoji_quit} Exit TO DO. app")
         print("="*50)
 
         choice = input("\nWhat would you like to do? (1-5): ")
 
         if choice == "1": # Add a new task
             clear_screen()
-            print_info(f"{smile} Yay! Let's add a new task!")
+            print_info(f"{emoji_smile} Yay! Let's add a new task!")
             while True:
                 task = get_task_input() 
                 if task:
@@ -122,7 +122,7 @@ def task_menu(task_list: TaskList, username: str) -> None:
         elif choice == "3": # Mark a task as done/complete
             clear_screen()
             if task_list.get_tasks():
-                print_info(f"{complete} Let's mark a task as done!\n")
+                print_info(f"{emoji_complete} Let's mark a task as done!\n")
                 retry_task(
                     task_list,
                     "mark complete",
@@ -138,7 +138,7 @@ def task_menu(task_list: TaskList, username: str) -> None:
             if not task_list.get_tasks():
                 task_list.display_tasks()
             else:
-                print_info(f"{delete} What task do you want to delete?\n")
+                print_info(f"{emoji_delete} What task do you want to delete?\n")
                 def after_delete():
                     if task_list.get_tasks():
                         print_success(f"Organisation is key!\n")
@@ -160,7 +160,7 @@ def task_menu(task_list: TaskList, username: str) -> None:
         
         else:
             clear_screen()
-            print_error(f"{cross} Cheeky, that's not a valid number!")
+            print_error(f"{emoji_cross} Cheeky, that's not a valid number!")
 
 # ========== User Signup =========
 def handle_signup():
@@ -217,10 +217,10 @@ def main_menu() -> None:
     Returns: None"""
     while True:
         print("\n" + "="*50)
-        print(f"\n1. {person} Create new account")
-        print(f"2. {key} Log into existing account")
-        print(f"3. {smile} Guest user")
-        print(f"4. {door} Exit")
+        print(f"\n1. {emoji_person} Create new account")
+        print(f"2. {emoji_key} Log into existing account")
+        print(f"3. {emoji_smile} Guest user")
+        print(f"4. {emoji_door} Exit")
         print("\n" + "="*50)
 
         choice = input("\nWhat would you like to do? (Enter a number 1-4): ")
@@ -243,7 +243,7 @@ def main_menu() -> None:
             break
         else:
             clear_screen()
-            print_error(f"{cross} Naughty! Please pick a number!")
+            print_error(f"{emoji_cross} Naughty! Please pick a number!")
 
 # ========= App Starting point / Shows title, runs main menu. =========
 if __name__ == "__main__":

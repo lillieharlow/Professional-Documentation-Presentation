@@ -9,7 +9,7 @@ Imports:
 
 import json
 import os
-from emoji_library import complete, incomplete, interesting, high, medium, low
+from emoji_library import emoji_complete, emoji_incomplete, emoji_interesting, emoji_high, emoji_medium, emoji_low
 from styling import *
 from utils import print_no_tasks
 
@@ -78,11 +78,11 @@ class PriorityTask(Task):
         """Return the task title with a priority emoji, emoji is based on priority level.
         Returns: str: Task title with priority emoji."""
         if self.priority == "High":
-            prio_emoji = high
+            prio_emoji = emoji_high
         elif self.priority == "Medium":
-            prio_emoji = medium
+            prio_emoji = emoji_medium
         elif self.priority == "Low":
-            prio_emoji = low
+            prio_emoji = emoji_low
         else:
             prio_emoji = ""
         return f"{prio_emoji} {self.title}" # Adds priority emoji to task title
@@ -165,7 +165,7 @@ class TaskList:
 
         # TDD testing implementation code - makes high priority tasks bold, red and uppercase
         for i, task in enumerate(self.tasks, 1):
-            status = complete if task.completed else incomplete
+            status = emoji_complete if task.completed else emoji_incomplete
             # High priority PriorityTask: uppercase and red, keep original emoji
             if isinstance(task, PriorityTask) and task.is_high_priority():
                 base = task.__str__()
@@ -199,7 +199,7 @@ class TaskList:
             with open(self.filename, 'w') as file:
                 json.dump(task_data, file, indent=2)
         except Exception as e:
-            print_error(f"\nThis is awkward {interesting}. JaSON couldn't save tasks because {e}")
+            print_error(f"\nThis is awkward {emoji_interesting}. JaSON couldn't save tasks because {e}")
 
     # ===== Load tasks from users file =====
     def load_tasks(self) -> None:
