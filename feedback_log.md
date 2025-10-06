@@ -87,7 +87,11 @@ Overall great work and a well documented project, it was clear what the project 
 
 Actions Taken:
 
-TODO 
+1. Added links in `README` to `docs` folder to improve navigation and accessibility.
+
+2. Cleaned up repeated installation instructions in `README` and `docs/Installation.md`.
+
+
 
 <hr>
 

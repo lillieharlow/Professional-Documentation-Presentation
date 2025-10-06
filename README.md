@@ -34,13 +34,13 @@ TO DO. adds colour, ASCII banners, and emojis to make managing tasks in the term
 
 For more detailed information, click the ```docs``` folder:
 
-- ⚙️ ```Dependencies.md``` – The libraries and packages TO DO. needs to operate, it's purpose and an outline of the legal and ethical impacts.
+- ⚙️ [```Dependencies.md```](docs/Dependencies.md) – The libraries and packages TO DO. needs to operate, it's purpose and an outline of the legal and ethical impacts.
 
-- 💻 ```Installation.md``` – Step-by-step guide to get TO DO. running on your system.
+- 💻 [```Installation.md```](docs/Installation.md) – Step-by-step guide to get TO DO. running on your system.
 
-- 📋 ```Requirements.md``` – Hardware and system requirments.
+- 📋 [```Requirements.md```](docs/Requirements.md) – Hardware and system requirments.
 
-- 📝 ```Usage.md``` – Detailed instructions for using all features of TO DO.
+- 📝 [```Usage.md```](docs/Usage.md) – Detailed instructions for using all features of TO DO.
 
 These help files make it easy to set up, use, and troubleshoot the app — everything you need in one place!
 
@@ -61,28 +61,25 @@ Perfect for students, developers, and anyone who loves organising their day with
 
 ## Quick Install
 
-For the best experience, use a dark theme in your code editor (e.g., "Visual Studio Dark" in VS Code).
+For the best experience, use a dark theme in your code editor (e.g., "Visual Studio Dark" in VS Code).  
+For detailed installation instructions, see [Installation.md](docs/Installation.md).
 
 1. **Clone Repository**
    ```bash
    git clone https://github.com/lillieharlow/Professional-Documentation-Presentation.git
    cd TO_DO._App
    ```
-2. **Install Dependencies**
+2. **Install Dependencies**  
+   Using provided `requirements.txt`:
    ```bash
-   pip install rich pyfiglet bcrypt emoji
+   pip install -r requirements.txt
    ```
-   Or create `requirements.txt` and manually add the dependencies (recommended for consistency):
+3. **Run the App**  
+   Start the app from the terminal:
+   ```bash
+   python3 todo_manager/main.py
    ```
-   bcrypt==4.3.0
-   emoji==2.14.1
-   markdown-it-py==3.0.0
-   mdurl==0.1.2
-   pyfiglet==1.0.2
-   Pygments==2.19.2
-   rich==13.7.1
-   six==1.17.0
-   ```
+
 
 ## Security & Data Storage
 
