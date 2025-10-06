@@ -66,6 +66,31 @@ Actions taken:
     *Australian Government Digital Service Standard (Criteria 9: Make it simple and intuitive).*
 <hr>
 
+## FEEDBACK LOG (RECEIVED) 4
+
+Date: 6th October 2025
+
+Checked by: Stefan Pejnovic
+
+Documentation Checked: ```README.md```, ```docs/*```
+
+Feedback:
+"The README is good and covers what I'd want to see at a glance. Some links to other docs in the docs folder would be a nice to have, and/or a table of contents in so I quickly see what I want.
+
+Each of the docs in the docs folder are good in isolation, but there's a fair bit of repetition between them and the README. For example, the contents of the requirements.txt can be found in the README, Installation.md, Dependencies.md and of course the file itself. Low level documentation like this tends to go out of date quickly in a real world scenario, so it may be a good idea to just link the user straight to the requirements.txt file and let it be self-updating as the project progresses.
+
+The in-code documentation is quite extensive and each function is clearly explained. For the future, some simple methods could either be slightly renamed, or have their arguments renamed resulting in them being self-documenting. This is handy because docstrings tend to be forgotten about during development and have a habit of going out of date.
+
+Also a small note regarding variable names. Most are very clear throughout the project, but the emojis can be a bit confusing. When I saw a line like print_info(f"{interesting} You don't have any tasks listed, let's add some!") out of context, it wasn't clear what interesting was. Making those variable names more distinct would make understanding the code a bit easier.
+
+Overall great work and a well documented project, it was clear what the project was, who it was for and why it delivers value. The code itself is also generally easy to understand and follow."
+
+Actions Taken:
+
+TODO 
+
+<hr>
+
 ## FEEDBACK LOG (PROVIDED) 1
 
 Date: 5th October 2025
