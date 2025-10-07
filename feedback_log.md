@@ -122,7 +122,7 @@ SQL
 
 grants privileges for the database but not schema 'public', so lms_user won't be able to perform operations. Consider adding privileges for the schema, or alternatively create the database after the user, and set the DB owner to lms_user.
 
-4. There may be some ethical concerns regarding distribution of this app without authentication implemented. While it is made clear in the README that this feature isn't yet available - the docs also present this app as "...inspired by these platforms but intentionally scoped as a lightweight solution for educational institutions. It ". This could be interpreted as suggesting this app as a simple to use replacement for the alternatives mentioned, and a user might implement this as is without considering the importance of keeping PII safe.
+4. There may be some ethical concerns regarding distribution of this app without authentication implemented. While it is made clear in the README that this feature isn't yet available - the docs also present this app as "...inspired by these platforms but intentionally scoped as a lightweight solution for educational institutions. It ". This could be interpreted as suggesting this app as a simple to use replacement for the alternatives mentioned, and a user might implement this as is without considering the importance of keeping PII safe. I would suggest adding a disclaimer in the README and docs to highlight that this app is not production ready, and should not be used to store sensitive user data until authentication is implemented.
 Consider the IEEE code of ethics section I, 1. "... to protect the privacy of others ..."
 The IEEE code can be viewed here: https://www.ieee.org/content/dam/ieee-org/ieee/web/org/about/corporate/ieee-code-of-ethics.pdf
 <hr>
