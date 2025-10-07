@@ -11,22 +11,12 @@ For the best experience, use a dark theme in your code editor (e.g., "Visual Stu
    ```bash
    pip install rich pyfiglet bcrypt emoji
    ```
-   Or create `requirements.txt` and manually add the dependencies (recommended for consistency):
-   ```
-   bcrypt==4.3.0
-   emoji==2.14.1
-   markdown-it-py==3.0.0
-   mdurl==0.1.2
-   pyfiglet==1.0.2
-   Pygments==2.19.2
-   rich==13.7.1
-   six==1.17.0
-   ```
+   > **Note:** Sub-dependencies like `Pygments`, `markdown-it-py`, `mdurl`, and `six` are installed automatically.
+
+   Or install using the provided `requirements.txt`:
    ```bash
    pip install -r requirements.txt
    ```
-   > **Note:** Sub-dependencies like `Pygments`, `markdown-it-py`, `mdurl`, and `six` are installed automatically.
-<hr>
 
 3. **Run the App**
    Start the app from the terminal:
